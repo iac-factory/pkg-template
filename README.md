@@ -4,6 +4,8 @@
 <details>
 <summary>Usage & Security Disclaimer ⇲</summary>
 
+## Disclaimer ##
+
 **CLI utilities can be incredibly dangerous.**
 
 - `stdin`, `os.exec`, and shells are easy to interface and therefore exploit.
