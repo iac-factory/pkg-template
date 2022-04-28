@@ -1,15 +1,14 @@
 {
     "name": "package",
-    "private": false,
+    "private": true,
     "version": "0.0.1",
-    "type": "commonjs",
     "main": "index.js",
     "module": "main.js",
     "description": "...",
     "types": "index.d.ts",
     "repository": {
         "type": "git",
-        "directory": ".",
+        "directory": "packages",
         "url": "https://github.com/iac-factory"
     },
     "license": "BSD-2-Clause",
@@ -32,8 +31,5 @@
         "ts-node": "^10.7.0",
         "tslib": "^2.4.0",
         "typescript": "^4.6.3"
-    },
-    "bin": {
-        "jira-story": "./index.js"
     }
 }

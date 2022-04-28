@@ -66,8 +66,5 @@
             "distribution",
             "node_modules"
         ]
-    },
-    "bin": {
-        "jira-story": "packages/distribution/jira-story/index.js"
     }
 }
