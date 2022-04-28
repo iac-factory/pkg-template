@@ -2,7 +2,7 @@
 
 <br>
 <details>
-<summary>Usage & Security Disclaimer ▼</summary>
+<summary>Usage & Security Disclaimer ⇲</summary>
 
 **CLI utilities can be incredibly dangerous.**
 
@@ -59,7 +59,7 @@ For any given command, issue `npx @iac-factory/[package-name] --help` for usage-
 ```
 
 <details>
-<summary>Advanced Configuration ▼</summary>
+<summary>Advanced Configuration ⇲</summary>
 
 ### `~/.npmrc` ###
 
@@ -120,7 +120,7 @@ the following philosophies:
 - *[Documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/introduction_to_system_administration/s1-philosophy-document)* is no different than code.
 
 <details>
-<summary>Creating a New Package ▼</summary>
+<summary>Creating a New Package ⇲</summary>
 
 1. Ensure the package is not relating to any Front-End framework (`react`, `preact`, `vue` `svelte`).
 2. Validate the package is hoistable.
@@ -132,7 +132,7 @@ the following philosophies:
 
 <details>
 
-<summary>Module Algorithm ▼</summary>
+<summary>Module Algorithm ⇲</summary>
 
 Node.js's import system (generally like other runtime languages) makes use
 of the following algorithm:
@@ -240,7 +240,7 @@ RESOLVE_ESM_MATCH(MATCH)
 </details>
 
 <details>
-<summary>Releasing & Deployments ▼</summary>
+<summary>Releasing & Deployments ⇲</summary>
 <br/>
 
 A "Release" will and always will be different in semantics as it relates to
@@ -263,7 +263,7 @@ A series of prompts will follow if applicable to candidate.
 </details>
 
 <details>
-<summary>Package Naming ▼</summary>
+<summary>Package Naming ⇲</summary>
 
 ### Notice ###
 
@@ -275,7 +275,7 @@ counterpart, intentionally. Such keeps context clear when referring to either th
 </details>
 
 <details>
-<summary>Motivation & Purpose ▼</summary>
+<summary>Motivation & Purpose ⇲</summary>
 
 [Under Review]
 
