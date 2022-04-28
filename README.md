@@ -139,6 +139,8 @@ the following philosophies:
 Node.js's import system (generally like other runtime languages) makes use
 of the following algorithm:
 
+## Module Import Algorithm ##
+
 ```txt
 require(X) from module at path Y
 1. If X is a core module,
