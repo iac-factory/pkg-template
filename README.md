@@ -21,8 +21,6 @@ Ensure due diligence in writing cli applications.
 
 </details>
 
----
-
 ## Setup (Local Development) ##
 
 ```shell
