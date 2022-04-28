@@ -14,7 +14,7 @@
 - `stdin`, `os.exec`, and shells are easy to interface and therefore exploit.
 - Having the ability to issue `os.exec` or interface `stdin` always makes the
   application dangerous.
-- Protecting against harmful bugs or malacious actors isn't difficult if
+- Protecting against harmful bugs or malicious actors isn't difficult if
   the application's logic is handled correctly, and precautions are made
   to disable [`REPLs`](https://en.wikipedia.org/wiki/Read–eval–print_loop)
   (but allowing `SIGKILL`, `SIGSTOP`, and other user-controlled signals).
