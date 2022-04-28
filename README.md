@@ -52,8 +52,7 @@ For any given command, issue `npx @iac-factory/[package-name] --help` for usage-
 
 ```ini
 ; GitHub `npm` Configuration for the `@iac-factory` Scope
-@iac-factory
-:registry = https://npm.pkg.github.com
+@iac-factory:registry = https://npm.pkg.github.com
 
 ; Scope Authentication - See EOF (1) Reference 
 //npm.pkg.github.com/:_authToken=[TOKEN]
