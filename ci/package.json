@@ -1,0 +1,21 @@
+{
+    "name": "@local/ci",
+    "private": true,
+    "scripts": {
+        "prestart": "tsc",
+        "simulate": "node distribution",
+        "start": "ts-node .",
+        "postinstall": "terraform init 2>/dev/null || true",
+        "post-install": "tsc",
+        "apply": "terraform apply",
+        "destroy": "terraform destroy"
+    },
+    "devDependencies": {
+        "ts-node": "^10.7.0",
+        "tslib": "^2.4.0",
+        "typescript": "^4.6.3"
+    },
+    "dependencies": {
+        "esm": "^3.2.25"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "$id": "settings.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Provider Schema",
+    "description": "Schema Template Definition for Package Configuration",
+    "type": "object",
+    "required": [
+        "organization",
+        "environments"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "organization": {
+            "description": "Organizational Alias or Common-Name",
+            "default": "Cloud-Technology",
+            "type": "string"
+        },
+        "environments": {
+            "description": "Environment Enumeration Options",
+            "type": "array",
+            "default": [
+                "Development",
+                "QA",
+                "Staging",
+                "UAT",
+                "Production"
+            ]
+        },
+        "environment": {
+            "description": "Default Environment Target",
+            "default": "Development",
+            "type": "string",
+            "enum": [
+                "Development",
+                "QA",
+                "Staging",
+                "UAT",
+                "Production"
+            ]
+        }
+    },
+    "definitions": {
+        "unique": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

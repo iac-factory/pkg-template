@@ -1,0 +1,73 @@
+.Token: &TOKEN
+    -   |
+        cat << EOF > ~/.npmrc
+        ; Instance Level Configuration
+        @iac-factory:registry = https://gitlab.cloud-technology.com/api/v4/packages/npm/
+        
+        ; Package Level Configuration
+        @iac-factory:registry = https://gitlab.cloud-technology.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/
+        
+        ; Important Configuration(s) - These are not comments
+        //gitlab.cloud-technology.com/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}
+        //gitlab.cloud-technology.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}
+        EOF
+
+default:
+    image: node:latest
+    tags: [Development]
+
+cache:
+    paths:
+        - node_modules/
+
+stages:
+    - Main
+
+Publish:
+    stage: Main
+    script:
+        - 'which ssh-agent || ( apt-get update -qy && apt-get install openssh-client -qqy )'
+        - eval "$(ssh-agent -s)"
+        - echo "${SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add - > /dev/null
+        - mkdir -p ~/.ssh
+        - chmod 700 ~/.ssh
+        - echo "$SSH_PUBLIC_KEY" >> ~/.ssh/id_rsa.pub
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+        - git remote set-url --push origin https://git:${GIT_PUSH_TOKEN}@gitlab.cloud-technology.com/${CI_GROUP_DIR}/npm/lambda-utilities.git
+        -   |
+            cat << EOF > ~/.npmrc
+            ; Instance Level Configuration
+            @iac-factory:registry = https://gitlab.cloud-technology.com/api/v4/packages/npm/
+            
+            ; Package Level Configuration
+            @iac-factory:registry = https://gitlab.cloud-technology.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/
+            
+            ; Important Configuration(s) - These are not comments
+            //gitlab.cloud-technology.com/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}
+            //gitlab.cloud-technology.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}
+            EOF
+        - npm install --package-lock
+        - git config --global user.email "${CI_COMMIT_AUTHOR}"
+        - git config --global user.name "git"
+    rules:
+        -   if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+            changes:
+                - package.json
+
+Installation:
+    stage: Main
+    script:
+        -   |
+            cat << EOF > ~/.npmrc
+            ; Instance Level Configuration
+            @iac-factory:registry = https://gitlab.cloud-technology.com/api/v4/packages/npm/
+            
+            ; Package Level Configuration
+            @iac-factory:registry = https://gitlab.cloud-technology.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/
+            
+            ; Important Configuration(s) - These are not comments
+            //gitlab.cloud-technology.com/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}
+            //gitlab.cloud-technology.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}
+            EOF
+        - npm install --package-lock
+    cache: []

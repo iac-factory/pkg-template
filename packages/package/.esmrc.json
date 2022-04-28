@@ -1,0 +1,7 @@
+{
+    "cache": false,
+    "cjs": true,
+    "mode": "auto",
+    "await": true,
+    "wasm": false
+}

@@ -1,0 +1,25 @@
+{
+    "command": {
+        "create": {
+            "homepage": "https://github.com/iac-factory"
+        },
+        "publish": {
+            "tempTag": true
+        },
+        "version": {
+            "allowBranch": "Development",
+            "conventionalCommits": true,
+            "exact": true
+        }
+    },
+    "ignoreChanges": [
+        "**/*.md"
+    ],
+    "useWorkspaces": false,
+    "npmClient": "npm",
+    "version": "independent",
+    "packages": [
+        "packages/*",
+        "ci"
+    ]
+}
